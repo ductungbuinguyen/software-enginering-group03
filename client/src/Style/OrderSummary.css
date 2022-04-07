@@ -1,0 +1,173 @@
+
+#OrderSummary{
+    width: 400px;
+}
+#OrderSummary .headerSummary{
+    text-align: left;
+    padding: 16px 20px;
+    background-color: #121921;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#OrderSummary .headerSummary {
+    font-size: 14px;
+    font-weight: 200;
+    color: #fff;
+    margin-bottom: 0;
+}
+#OrderSummary .oderDetail{
+    border: 1px solid rgb(153, 153, 153);
+    padding: 0px 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#OrderSummary .oderDetail ul {
+    padding: 0;
+    border-bottom: 1px solid rgb(215, 215, 215);
+    margin-top: 10px;
+}
+#OrderSummary .oderDetail ul li {
+    margin-bottom: 2px;
+}
+#OrderSummary .oderDetail .delivery{
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(215, 215, 215);
+    padding-bottom: 10px;
+}
+#OrderSummary .oderDetail .delivery .check{
+    display: inline-block;
+    background-color: transparent;
+    border-radius: 50%;
+    margin-bottom: -3px;
+    margin-right: 10px;
+    padding: 2px;
+    border: 1px solid #f25c04;
+}
+#OrderSummary .oderDetail .delivery .check div{
+    width: 12px;
+    height: 12px;
+    background-color: #f25c04;
+    border-radius: 50%;
+}
+#OrderSummary .oderDetail .totalOrder{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 0px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(20, 20, 20);
+}
+
+#OrderSummary .oderDetail .continueButton{
+    background: #f25c04;
+    margin-bottom: 20px ;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 40px;
+}
+#OrderSummary .oderDetail .continueButton div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    line-height: 15px;
+    color: #fff;
+    transition:  all 0.2s ease-in-out;
+}
+#OrderSummary .continueButton:hover div:nth-child(1){
+    transform: translateX(-50%)
+}
+
+
+/* ************************************ */
+#OrderSummary .fieldInfo{
+    border: 1px solid rgb(153, 153, 153);
+    padding: 0px 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#OrderSummary .fieldInfo .field{
+    width: 100%;
+    outline: 0;
+    font-size: 14px;
+    line-height: 14px;
+    height: 35px;
+    border-radius: 3px;
+    border: 1px solid #dfdfdf;
+    background-color: #fff;
+    margin:5px 0px;
+    padding:0px 10px;
+}
+#OrderSummary .fieldInfo .field:focus {
+    border: 1px solid #f25c04;
+}
+
+#OrderSummary .fieldInfo .totalOrder{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 0px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgb(20, 20, 20);
+}
+#OrderSummary .fieldInfo .acceptTerms{
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+#OrderSummary .fieldInfo .acceptTerms input{
+    width: 17px;
+    height: 17px;
+    margin-right: 7px;
+    transform: translateY(3.5px);
+}
+#OrderSummary .fieldInfo .acceptTerms a{
+    text-decoration: none;
+    color: #f25c04;
+}
+#OrderSummary .fieldInfo .acceptTerms a:hover{
+    text-decoration: underline;
+}
+#OrderSummary .fieldInfo .submitButton{
+    background: #f25c04;
+    margin-bottom: 20px ;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 40px;
+    width: 100%;
+    border: 1px solid transparent;
+}
+#OrderSummary .fieldInfo .submitButton div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    line-height: 15px;
+    color: #fff;
+    transition:  all 0.2s ease-in-out;
+}
+#OrderSummary .submitButton:hover div:nth-child(1){
+    transform: translateX(-50%)
+}
+#OrderSummary .fieldInfo .backButton{
+    margin-bottom: 20px ;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 40px;
+    width: 100%;
+    border: 2px solid black;
+}
+#OrderSummary .fieldInfo .backButton div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    line-height: 15px;
+    transition:  all 0.2s ease-in-out;
+}
+#OrderSummary .backButton:hover div:nth-child(1){
+    transform: translateX(-50%)
+}
+
+
