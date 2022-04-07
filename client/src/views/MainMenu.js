@@ -3,7 +3,8 @@ import OrderSummary from '../components/menu/OrderSummary/OrderSummary'
 const MainMenu = () => {
   return (
     <div>
-      <OrderSummary listFood={[]} /> 
+      {/* <OrderSummary listFood={[]} />  */}
+      
     </div>
     
   )
