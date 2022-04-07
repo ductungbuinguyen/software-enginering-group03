@@ -1,8 +1,11 @@
 import React from 'react'
-
+import OrderSummary from '../components/menu/OrderSummary/OrderSummary'
 const MainMenu = () => {
   return (
-    <div>Main Menu</div>
+    <div>
+      <OrderSummary listFood={[]} /> 
+    </div>
+    
   )
 }
 
