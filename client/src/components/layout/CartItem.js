@@ -21,16 +21,18 @@ class CartItem extends React.Component{
             qty:this.state.qty+1,
             totalPrice:(this.state.qty+1)*price
         })
+        this.props.addTotal(price)
       }
       decreaseQty(){
-        this.setState({
-            qty:this.state.qty-1,
-            totalPrice:(this.state.qty-1)*price
-        })
-        if(this.state.qty<=0){
-            this.setState({qty:0,totalPrice:this.state.qty*price})
+        if(this.state.qty>0){
+            this.setState({
+                qty:this.state.qty-1,
+                totalPrice:(this.state.qty-1)*price
+            })
+            this.props.addTotal(-price)
         }
-    }
+        
+      }
 
       render() {
         return(
@@ -48,7 +50,7 @@ class CartItem extends React.Component{
                         </div>
                     </div>
                     <div>
-                        <div class="order-list-price">$ {this.state.totalPrice}</div>
+                        <div class="order-list-price">$ {this.state.totalPrice.toFixed(2)}</div>
                         <div class="order-list-delete">
                             <a href="google.com" id="deleteCartItem04M"><i class="fa-solid fa-trash-can"></i></a>
                         </div>
