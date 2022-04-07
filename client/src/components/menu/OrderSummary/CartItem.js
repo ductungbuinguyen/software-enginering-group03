@@ -1,7 +1,7 @@
 import React from 'react'
-import '../../Style/CartItem.css'
+import '../../../Style/CartItem.css'
 
-const img=require(`./pizza.jpg`)
+const img=require('./../../../assets/pizza.jpg')
 const name=`Fitness`
 const size=`Medium: 32cm`
 let price=7.9
