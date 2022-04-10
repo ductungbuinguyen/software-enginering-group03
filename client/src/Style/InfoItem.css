@@ -67,6 +67,7 @@
    
 .img-link-item:hover img {
     transform: scale(1.2);
+    border-radius: 20px;
 }
 
 .option-item {
@@ -74,11 +75,21 @@
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
+    border: 5px;
 }
 .select-size {
     display: inline-block;
-    width: 30%;
+    width: 40%;
     text-align: left;
+}
+
+.bar-size {
+    display: inline-block;
+    width: 20%;
+}
+.choose-size {
+    display: inline-block;
+    width: 80%;
 }
 
 select {
@@ -106,7 +117,7 @@ select {
 }
 .add-to-cart {
     display: inline-block;
-    width: 20%;
+    width: 10%;
     text-align: right;
 }
 .add-to-cart button {
