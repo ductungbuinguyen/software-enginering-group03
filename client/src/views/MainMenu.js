@@ -6,7 +6,7 @@ import ListItem from '../components/item/ListItem'
 const MainMenu = () => {
   return (
     <div>
-      <OrderSummary listFood={[]} />
+      {/* <OrderSummary listFood={[]} /> */}
       <ListItem />
     </div>
     

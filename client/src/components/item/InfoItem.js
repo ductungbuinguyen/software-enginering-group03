@@ -1,18 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
+
 import '../../Style/InfoItem.css'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Modal, Button } from 'react-bootstrap'
 
-import products from '../../productItemTest/productData.js'
 
 const img = require('../../assets/pizza.jpg');
 
-
-
 function InfoItem(props) {
 
+    const [ShowDes, setShowDes] = useState(false);
+
+    function showDescription() {
+        setShowDes(true);
+    }
+
+    function hideDescription() {
+        setShowDes(false);
+    }
+
     return(
-        <div>
+        <div class="box-InfoItem">
             <div>
         <div class="InfoItem">
 
@@ -21,16 +30,55 @@ function InfoItem(props) {
                 
                 <div class="img-link-item">
                             {/* props.image */}
-                    <img src={img}/>
+                    <img src={img} onClick={showDescription}/>
+
+                    {/* Show Modal for Description */}
+                    <Modal show={ShowDes}>
+                        <Modal.Header> 
+                            <h4> {props.item.name}</h4> 
+                        </Modal.Header>
+
+                        <Modal.Body> 
+                           
+                            <div class="modal-img">
+                                <img src={img} />
+                            </div>
+                            
+                            <div class="modal-ingredient">
+                                <h5> Ingredient: </h5>
+                            </div>
+
+                            <div class="modal-description">
+                                {props.item.description} 
+                            </div> 
+
+                            <div class="modal-nutrition">
+                                <h5> Nutrition </h5>      
+                                
+                                <h6> <i class="fa-solid fa-stop"></i> Small: {props.item.nutrition.small} kcal </h6> 
+                                <h6> <i class="fa-solid fa-square"></i> Medium: {props.item.nutrition.medium} kcal </h6>
+                                <h6> <i class="fa-solid fa-square-full"></i> Large: {props.item.nutrition.large} kcal </h6>
+                            </div>                     
+                            
+                        </Modal.Body>
+
+                        <Modal.Footer> 
+                            <Button onClick={hideDescription}> Close </Button>
+                        </Modal.Footer>
+                    </Modal>
+                    {/* End Modal */}
                     
                     <div class="name-and-size">
                         <div class="text-on-img"> 
-                            <h6> {props.name} </h6>
+                            <h6> {props.item.name} </h6>
                         </div>
 
+                        {/* show size on picture 
                         <div class="size-on-img">
                             <button class="button-size"> Size: M </button>
                         </div>  
+                        */}
+                        
                     </div>
                     
                 </div>
@@ -69,7 +117,7 @@ function InfoItem(props) {
                     </div>
                     
                     <div class="cost">
-                        <h6> {props.price} </h6> 
+                        <h6> {props.item.price} </h6> 
                     </div>
                 </div>
                 
