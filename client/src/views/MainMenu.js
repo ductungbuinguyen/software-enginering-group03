@@ -9,7 +9,6 @@ const MainMenu = () => {
       {/* <OrderSummary listFood={[]} /> */}
       <ListItem />
     </div>
-    
   )
 }
 
