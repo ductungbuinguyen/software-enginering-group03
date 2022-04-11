@@ -1,6 +1,6 @@
 import React from 'react'
 import CartItem from './CartItem';
-import '../../Style/OrderSummary.css'
+import '../../../Style/OrderSummary.css'
 
 const delevery=10;
 

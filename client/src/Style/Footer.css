@@ -1,0 +1,149 @@
+footer.main-footer h5 {
+	color: #fff;
+}
+
+footer.main-footer {
+	padding-top: 90px;
+	padding-bottom: 90px;
+	color: #bcbcbc;
+	background-color: #121921;
+	border-top: 1px solid #ddd;
+}
+
+footer.main-footer ul.nav-links li i {
+	font-size: 13px;
+    transform: translateY(7px);
+    margin-right: 13px;
+}
+
+.footer-heading {
+	margin-bottom: 1.25rem;
+	font-weight: 600;
+}
+
+a.footer-link {
+	color: #bcbcbc;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.8;
+}
+
+.footer-link:hover {
+	color: #fff;
+}
+
+.contact-links i {
+	color: #f25c04;
+	margin-right: 15px;
+	font-size: 18px;
+	transform: translateY(5px);
+}
+
+a.social-link {
+	color: #fff;
+	opacity: 0.6;
+	font-size: 20px;
+	font-weight: 400;
+	margin-right: 10px;
+}
+
+a.social-link:visited {
+	color: #fff;
+}
+
+.social-links li {
+	display: inline-block;
+    width: 40px;
+}
+
+
+footer #copy {
+	text-align: right;
+	font-size: 13px;
+	color: #bcbcbc;
+}
+
+footer hr#dotdot {
+	border-top: 2px dotted rgba(242, 246, 247, 0.3);
+	margin-top: 5px;
+}
+
+
+ul#subFooterLinks {
+	margin: 0px;
+	font-size: 13px;
+	color: #bcbcbc;
+    padding-left: 0px;
+}
+
+ul#subFooterLinks li {
+	display: inline-block;
+	margin-right: 15px;
+}
+
+ul#subFooterLinks li:first-child {
+	margin-right: 20px;
+}
+
+ul#subFooterLinks li:last-child:after {
+	content: "";
+}
+
+ul#subFooterLinks li a {
+	color: #bcbcbc
+}
+
+ul#subFooterLinks li a:hover {
+	text-decoration: underline;
+}
+
+ul#subFooterLinks li:after {
+	content: "|";
+	font-weight: 300;
+	position: relative;
+	left: 10px;
+}
+
+ul#subFooterLinks i {
+	color: #f25c04;
+}
+
+
+ul#subFooterLinks {
+	margin: 0;
+	font-size: 13px;
+	color: #999;
+}
+
+ul#subFooterLinks li {
+	display: inline-block;
+	margin-right: 15px;
+}
+
+ul#subFooterLinks li:first-child {
+	margin-right: 20px;
+}
+
+ul#subFooterLinks li:last-child:after {
+	content: "";
+}
+
+ul#subFooterLinks li a {
+	color: #999
+}
+
+ul#subFooterLinks li a:hover {
+	text-decoration: underline;
+}
+
+ul#subFooterLinks li:after {
+	content: "|";
+	font-weight: 300;
+	position: relative;
+	left: 10px;
+}
+
+ul#subFooterLinks i {
+	color: #f25c04;
+    
+}

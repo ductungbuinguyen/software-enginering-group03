@@ -1,7 +1,7 @@
 import React from 'react'
-import '../../Style/CartItem.css'
+import '../../../Style/CartItem.css'
 
-const img=require(`./pizza.jpg`)
+const img=require('./../../../assets/pizza.jpg')
 const name=`Fitness`
 const size=`Medium: 32cm`
 let price=7.9
@@ -45,7 +45,7 @@ class CartItem extends React.Component{
                         <h4> {name} <br/>    <small>{size}</small>    </h4>
                         <div class="qty-buttons"> 
                             <i class="fa-solid fa-minus qtyminus" onClick={this.decreaseQty}></i>
-                            <input type="text" name="qty" value={this.state.qty} class="qty form-control"  onChange={this.changQty}/> 
+                            <input type="text" name="qty" value={this.state.qty} class="qty"  onChange={this.changQty}/> 
                             <i class="fa-solid fa-plus qtyplus" onClick={this.increaseQty}></i>
                         </div>
                     </div>
