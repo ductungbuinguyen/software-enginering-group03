@@ -35,6 +35,7 @@ const delevery=10;
         const carts = <ul>
                             <li><CartItem addTotal={this.addToTalPriceOrder} /></li>
                             <li><CartItem addTotal={this.addToTalPriceOrder} /></li>
+                            <li><CartItem addTotal={this.addToTalPriceOrder} /></li>
                       </ul>
         
         return(
