@@ -27,7 +27,7 @@ const Header = () => {
 						<ul id='menuIcons'>
 							<li>
 								<a href='#'>
-									<Icon icon="carbon:shopping-cart" width="35px" height="35px"></Icon>
+									<Icon icon="carbon:shopping-cart" hFlip={true} width="35px" height="35px"></Icon>
 								</a>
 							</li>
 							<li>

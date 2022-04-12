@@ -20,14 +20,14 @@ const MainMenu = () => {
 								<ListItem />
 							</section>
 						</div>
-            <div class='col-lg-4'>
-              <OrderSummary class='main-menu__order-summary' listFood={[]} />
-            </div>
+						<div class='col-lg-4'>
+							<div class='main-menu__order-summary'>
+								<OrderSummary listFood={[]} />
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			{/* <OrderSummary listFood={[]} /> */}
-			{/* <ListItem /> */}
 		</div>
 	);
 };

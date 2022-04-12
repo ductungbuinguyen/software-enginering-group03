@@ -1,29 +1,28 @@
-.box-InfoItem {
-    
-}
-
 .InfoItem {
-    background-color: white;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
-    display: inline-block;
-    flex: 1;
     margin-bottom: 30px;
-}
-.InfoItem:hover {
-    transition: 0.2s all ease-in-out;
-    transform: scale(1.02);
 }
 
 .img-link-item {
-    display: inline-block;
     overflow: hidden;
-
-
     position: relative;
     text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 180px;
+    cursor: pointer;
 }
-
+.img-link-item img {
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: 0.3s all ease-in-out;
+}
+.img-link-item:hover img {
+    transform: translate(-50%, -50%) scale(1.1);
+}
 .modal-img {
     text-align: center;
 }
@@ -73,30 +72,35 @@
     border: 0;
 }
 
-.img-link-item img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
 .option-item {
-    display: inline-block;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    border: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    margin: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 2px 2px 0 rgb(9 30 66 / 13%);
 }
 .select-size {
-    display: inline-block;
-    width: 40%;
-    text-align: left;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
 }
 
 .bar-size {
-    display: inline-block;
-    width: 20%;
+    display: flex;
+    margin-right: 5px;
+}
+.select-size span{
+    font-size: 14px;
+    font-weight: 500;
+}
+.select-size:hover {
+    color: #f25c04;
 }
 .choose-size {
     display: inline-block;
@@ -108,34 +112,23 @@ select {
 }
 
 .wallet-dollar-cost {
-    display: inline-block;
-    width: 50%;
-    text-align: left;
+    display: flex;
+    gap: 2px;
+    align-items: center;
 }
 
-.wallet {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.dollar {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.cost {
-    display: inline-block;
+.cost span{
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
 }
 .add-to-cart {
-    display: inline-block;
-    width: 10%;
-    text-align: right;
+    margin-left: auto;
+    cursor: pointer;
 }
-.add-to-cart button {
-    background-color: white;
-    border: 0;
+.add-to-cart:hover {
+    color: #f25c04;
 }
-
 .space50px {
     margin: 50px;
 }
