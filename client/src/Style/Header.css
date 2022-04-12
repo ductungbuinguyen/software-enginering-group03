@@ -27,7 +27,7 @@ header.main-header.sticky {
 	position: sticky;
 	left: 0;
 	top: 0;
-	z-index: 2;
+	z-index: 3;
 }
 
 .main-menu > ul > li span:hover > a {

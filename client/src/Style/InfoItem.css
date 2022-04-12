@@ -40,10 +40,11 @@
 
 .name-and-size {
     display: inline-block;
-    bottom: 5px;
+    bottom: 0;
     left: 0;
     position: absolute;
     width: 100%;
+    background: linear-gradient(to bottom, transparent 5%, black 100%);
 }
 .text-on-img {
     display: inline-block;
@@ -54,15 +55,30 @@
     padding-left: 15px;
     text-align: left;
 }
+.text-on-img p{
+    font-weight: 500;
+    line-height: 1;
+    font-size: 13px;
+    color: #fafafa;
+}
+
 .size-on-img {
+    background-color: #f25c04;
+    color: #fff;
     display: inline-block;
-    color: white;
-    bottom: 5px;
-    left: 20px;
-    font-weight: normal;
-    width: 20%;
-    padding-right: 10px;
-    text-align: right;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-weight: 400;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    padding: 5px 10px;
+    line-height: 1;
+    font-size: 13px;
+    z-index: 2;
+    cursor: auto;
 }
 
 .button-size {
@@ -131,4 +147,18 @@ select {
 }
 .space50px {
     margin: 50px;
+}
+.img-link-item .red {
+    background-color: #e54750;
+    left: 15px;
+    top: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 400;
+    position: absolute;
+    border-radius: 5px;
+    padding: 6px 8px 4px 8px;
+    line-height: 1;
+    font-size: 11px;
+    letter-spacing: 1px;
 }

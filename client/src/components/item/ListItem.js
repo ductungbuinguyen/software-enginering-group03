@@ -1,20 +1,25 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import InfoItem from './InfoItem.js';
+import axios from 'axios'
 
-import products from '../../productItemTest/productData.js';
-
-class ListItem extends React.Component {
-	render() {
-		return (
-			<div class='row grid'>
-				{products.map((product, index) => (
-					<div class='col-sm-6' key={index}>
-						<InfoItem item={product} />
-					</div>
-				))}
-			</div>
-		);
-	}
+const ListItem = () => {
+	let [ products, setProducts ] = useState([])
+	useEffect(() => {
+    async function fetchProducts() {
+      const results = await axios('http://localhost:5000/api/products');
+      setProducts(results.data?.products)
+    }
+    fetchProducts()
+  },[])
+	return (
+		<div class='row grid'>
+			{products.map((product, index) => (
+				<div class='col-sm-6' key={index}>
+					<InfoItem item={product} />
+				</div>
+			))}
+		</div>
+	);
 }
 
 export default ListItem;
