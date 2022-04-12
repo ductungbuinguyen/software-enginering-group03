@@ -1,0 +1,149 @@
+header.main-header.sticky {
+	position: static;
+}
+.main-menu a i {
+	display: none;
+}
+#logo {
+	position: relative;
+	left: 45px;
+}
+header {
+	background-color: #fff;
+	min-height: 55px;
+	padding: 10px 0;
+	border-bottom: 1px solid transparent;
+}
+
+header.main-header {
+	width: 100%;
+	z-index: 2;
+	position: relative;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+header.main-header.sticky {
+	border-bottom: 1px solid #fff;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 2;
+}
+
+header.main-header.active {
+	border-bottom: 1px solid #ddd;
+}
+
+header.static {
+	position: static;
+	border-bottom: 1px solid #ddd;
+	z-index: 2;
+	position: relative;
+}
+
+.main-menu > ul > li span:hover > a {
+	color: #f25c04;
+}
+
+.main-menu ul ul {
+	border-top: 2px solid #f25c04;
+}
+
+.main-menu ul ul li:hover > a {
+	color: #f25c04;
+}
+
+.main-menu ul ul li span > a:hover {
+	color: #f25c04;
+}
+
+.main-menu a i {
+	font-size: 9px;
+	margin-left: 2px;
+}
+
+.main-menu ul ul li span > a:after {
+	font-family: 'FontAwesome';
+	font-weight: 500;
+	content: '\f054';
+	float: right;
+	font-size: 9px;
+	margin-top: 3px;
+}
+
+ul#menuIcons {
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+
+ul#menuIcons li {
+	display: inline-block;
+	position: relative;
+	padding: 0;
+	margin-left: 15px;
+}
+
+ul#menuIcons li i {
+	font-size: 34px;
+}
+
+ul#menuIcons li a {
+	color: #f25c04;
+}
+
+ul#menuIcons li a:hover {
+	color: #333;
+}
+
+#logo h1 {
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+}
+
+#logo h1 a {
+	width: 149px;
+	height: 35px;
+	display: block;
+	background: url(../assets/logo.svg) no-repeat 0 0;
+	background-size: 149px 35px;
+	text-indent: -9999px;
+}
+
+.main-menu {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: end;
+}
+
+.main-menu ul,
+.main-menu ul li {
+	position: relative;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.main-menu ul li {
+	float: left;
+}
+
+.main-menu ul li a {
+	display: block;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	padding: 0 8px;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 500;
+}
+.main-menu > ul > li:hover > a {
+	color: #f25c04;
+}
