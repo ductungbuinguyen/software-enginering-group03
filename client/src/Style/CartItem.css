@@ -1,11 +1,14 @@
+#cartItem04M {
+    display: flex;
+}
 #cartItem04M li{
     list-style: none;
     display: flex;
     width: 100%;
 }
 #cartItem04M .order-list-img{
-    width: 30%;
-    padding-right: 3%;
+    width: 160px;
+    padding-right: 15px;
 }
 #cartItem04M .order-list-img img{
     width: 100%;

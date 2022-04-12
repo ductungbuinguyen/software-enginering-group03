@@ -7,11 +7,11 @@ import Footer from './components/layout/Footer'
 function App() {
   return (
     <Router>
-      { /*<Header/>*/ }
+      <Header/>
       <Routes>
         <Route exact path='/' element={<MainMenu/>}/>
       </Routes>
-      { /*<Footer/>*/ }
+      <Footer/>
     </Router>
   );
 }

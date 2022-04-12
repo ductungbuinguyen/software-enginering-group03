@@ -4,10 +4,6 @@ header.main-header.sticky {
 .main-menu a i {
 	display: none;
 }
-#logo {
-	position: relative;
-	left: 45px;
-}
 header {
 	background-color: #fff;
 	min-height: 55px;
