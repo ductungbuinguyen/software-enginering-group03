@@ -31,16 +31,33 @@ class Filter extends React.Component {
     render() {
         const productsName = [...new Set(products.map(products => products.name))];
         return (
-            <div>
-                <div className='filter'>
-                {/* <input onChange={this.handleChange} placeholder='Search...' value={this.state.search}></input>
-                <br /> */}
-                <button value='all' onClick={this.handleClick}>All</button>
-                {productsName.map(t => <button onClick={this.handleClick} value={t}>{t}</button>)}
-                <br />
-                {/* <ListItem chose={this.state.choose} searched={this.state.search} /> */}
+            // <div>
+            //     <div className='filter'>
+            //     {/* <input onChange={this.handleChange} placeholder='Search...' value={this.state.search}></input>
+            //     <br /> */}
+            //     <button value='all' onClick={this.handleClick}>All</button>
+            //     {productsName.map(t => <button onClick={this.handleClick} value={t}>{t}</button>)}
+            //     <br />
+            //     {/* <ListItem chose={this.state.choose} searched={this.state.search} /> */}
+            //     </div>
+            //     <ListItem chose={this.state.choose} />
+            // </div>
+            <div className="grid-container">
+                <div className="grid-item item1">Filter</div>
+                <div className="grid-item item2"><button>Reset Filters</button></div>
+                <div className="grid-item item3">
+                    <select className="select">
+                        <option>All</option>
+                        <option>{products[0].name}</option>
+                        <option>{products[1].name}</option>
+                        <option>{products[2].name}</option>
+                        <option>{products[3].name}</option>
+                        <option>{products[4].name}</option>
+                    </select>
                 </div>
-                <ListItem chose={this.state.choose} />
+                <div className="grid-item item4">
+                    <input type='text' className="search" placeholder="Search..." />
+                </div>
             </div>
         );
     }
