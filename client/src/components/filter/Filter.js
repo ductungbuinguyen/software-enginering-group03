@@ -16,6 +16,7 @@ class Filter extends React.Component {
 
         // this.handleChange = this.handleChange.bind(this);
         this.handleSelect = this.handleSelect.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     // handleChange(e) {
@@ -26,6 +27,10 @@ class Filter extends React.Component {
     handleSelect(e) {
         const value = e.target.value;
         this.setState({choose: value});
+    }
+
+    handleClick() {
+        this.setState({choose: 'all'});
     }
 
     render() {
@@ -45,7 +50,7 @@ class Filter extends React.Component {
             <div>
             <div className="grid-container">
                 <div className="grid-item item1">Filter</div>
-                <div className="grid-item item2"><button>Reset Filters</button></div>
+                <div className="grid-item item2"><button onClick={this.handleClick}>Reset Filters</button></div>
                 <div className="grid-item item3">
                     <select className="select" onChange={this.handleSelect}>
                         <option value='all'>All</option>
