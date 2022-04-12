@@ -15,7 +15,7 @@ class Filter extends React.Component {
         }
 
         // this.handleChange = this.handleChange.bind(this);
-        this.handleClick = this.handleClick.bind(this);
+        this.handleSelect = this.handleSelect.bind(this);
     }
 
     // handleChange(e) {
@@ -23,7 +23,7 @@ class Filter extends React.Component {
     //     this.setState({search: value});
     // }
 
-    handleClick(e) {
+    handleSelect(e) {
         const value = e.target.value;
         this.setState({choose: value});
     }
@@ -42,22 +42,25 @@ class Filter extends React.Component {
             //     </div>
             //     <ListItem chose={this.state.choose} />
             // </div>
+            <div>
             <div className="grid-container">
                 <div className="grid-item item1">Filter</div>
                 <div className="grid-item item2"><button>Reset Filters</button></div>
                 <div className="grid-item item3">
-                    <select className="select">
-                        <option>All</option>
-                        <option>{products[0].name}</option>
-                        <option>{products[1].name}</option>
-                        <option>{products[2].name}</option>
-                        <option>{products[3].name}</option>
-                        <option>{products[4].name}</option>
+                    <select className="select" onChange={this.handleSelect}>
+                        <option value='all'>All</option>
+                        <option value={productsName[0]}>{products[0].name}</option>
+                        <option value={productsName[1]}>{products[1].name}</option>
+                        <option value={productsName[2]}>{products[2].name}</option>
+                        <option value={productsName[3]}>{products[3].name}</option>
+                        <option value={productsName[4]}>{products[4].name}</option>
                     </select>
                 </div>
                 <div className="grid-item item4">
                     <input type='text' className="search" placeholder="Search..." />
                 </div>
+            </div>
+            <ListItem chose={this.state.choose} />
             </div>
         );
     }
