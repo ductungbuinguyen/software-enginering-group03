@@ -70,6 +70,7 @@
     border-radius: 5px;
     cursor: pointer;
     padding: 10px 40px;
+    overflow: hidden;
 }
 #OrderSummary .oderDetail .continueButton div:nth-child(1){
     display: flex;

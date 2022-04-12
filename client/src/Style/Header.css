@@ -23,22 +23,11 @@ header.main-header {
 }
 
 header.main-header.sticky {
-	border-bottom: 1px solid #fff;
-	position: fixed;
+	border-bottom: 1px solid #ddd;
+	position: sticky;
 	left: 0;
 	top: 0;
 	z-index: 2;
-}
-
-header.main-header.active {
-	border-bottom: 1px solid #ddd;
-}
-
-header.static {
-	position: static;
-	border-bottom: 1px solid #ddd;
-	z-index: 2;
-	position: relative;
 }
 
 .main-menu > ul > li span:hover > a {
