@@ -29,7 +29,7 @@ class ListItem extends React.Component{
         else if (this.props.chose === 'all' && this.props.searched !== '')
         {
             // const product = products.filter(product => product.name.search(/this.props.searched/i) !== -1);
-            const product = products.filter(product => product.name.toLowerCase().includes(this.props.searched));
+            const product = products.filter(product => product.name.toLowerCase().includes(this.props.searched) || product.description.toLowerCase().includes(this.props.searched));
             const count = product.length;
             if (count == 0)
             {
@@ -52,7 +52,7 @@ class ListItem extends React.Component{
         }
         else {
             const productChosen = products.filter(product => product.name === this.props.chose);
-            const productSearched = productChosen.filter(product => product.name.toLowerCase().includes(this.props.searched));
+            const productSearched = productChosen.filter(product => product.name.toLowerCase().includes(this.props.searched) || product.description.toLowerCase().includes(this.props.searched));
             const count = productSearched.length;
             if (count == 0)
             {

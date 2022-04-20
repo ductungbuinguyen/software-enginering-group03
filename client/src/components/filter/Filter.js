@@ -52,7 +52,7 @@ class Filter extends React.Component {
                 <div className="grid-item item1">Filter</div>
                 <div className="grid-item item2"><button onClick={this.handleClick}>Reset Filters</button></div>
                 <div className="grid-item item3">
-                    <select className="select" onChange={this.handleSelect}>
+                    <select className="select" onChange={this.handleSelect} value={this.state.choose}>
                         <option value='all'>All</option>
                         <option value={productsName[0]}>{products[0].name}</option>
                         <option value={productsName[1]}>{products[1].name}</option>
