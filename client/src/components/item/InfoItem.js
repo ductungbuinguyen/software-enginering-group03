@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { Icon } from '@iconify/react'
 
-import orderedlist from './OrderedList';
 
 function InfoItem(props) {
 	const [ShowDes, setShowDes] = useState(false);
@@ -52,7 +51,7 @@ function InfoItem(props) {
     /* send order to summary cart */
     function sendOrder() {
         /* order vao gio hang */
-        props.setlistorder_of_listitem(...props.listorder_of_listitem, props.item, selectedSize);
+        props.setlistorder_of_listitem(...props.listorder_of_listitem, props.item, selectedSize); 
         hideSelectSize();
     }
 
