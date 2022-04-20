@@ -81,29 +81,65 @@ function InfoItem(props) {
 								<div class='modal-description'>{props.item.description}</div>
 
 								<div class='modal-nutrition'>
-									<h5> Nutrition </h5>
+                                    <h5> Nutrition </h5>
 
-									<h6>
-										{' '}
-										<i class='fa-solid fa-stop'></i> Small:{' '}
-										{props.item.nutrition.small} kcal{' '}
-                                        {props.item.pricePerSizes[0].price} đ{' '}
-									</h6>
-									<h6>
-										{' '}
-										<i class='fa-solid fa-square'></i> Medium:{' '}
-										{props.item.nutrition.medium} kcal{' '}
-									</h6>
-									<h6>
-										{' '}
-										<i class='fa-solid fa-square-full'></i> Large:{' '}
-										{props.item.nutrition.large} kcal{' '}
-									</h6>
+                                    <div class="size-and-cost">
+                                        <div class="size-of-size-and-cost">
+                                            <h6>
+                                                {' '}
+                                                <i class='fa-solid fa-stop'></i> Small:{' '}
+                                                {props.item.nutrition.small} kcal{' '}   
+                                            </h6>
+                                        </div>
+
+                                        <div class="cost-of-size-and-cost">
+                                            <h6>
+                                                {props.item.pricePerSizes[0].price} đ{' '}
+                                            </h6>                                       
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="size-and-cost">
+                                        <div class="size-of-size-and-cost">
+                                            <h6>
+                                                {' '}
+                                                <i class='fa-solid fa-square'></i> Medium:{' '}
+                                                {props.item.nutrition.medium} kcal{' '}
+                                            </h6>
+                                        </div>
+
+                                        <div class="cost-of-size-and-cost">
+                                            <h6>
+                                                {props.item.pricePerSizes[1].price} đ{' '}
+                                            </h6>                                       
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <div class="size-and-cost">
+                                        <div class="size-of-size-and-cost">
+                                            <h6>
+                                                {' '}
+                                                <i class='fa-solid fa-square-full'></i> Large:{' '}
+                                                {props.item.nutrition.large} kcal{' '}
+                                            </h6>
+                                        </div>
+
+                                        <div class="cost-of-size-and-cost">
+                                            <h6>
+                                                {props.item.pricePerSizes[2].price} đ{' '}
+                                            </h6>                                       
+                                        </div>
+                                        
+                                    </div>
+									
+									
 								</div>
 							</Modal.Body>
 
 							<Modal.Footer>
-								<Button onClick={hideDescription}> Close </Button>
+								<button class="btn btn-warning" onClick={hideDescription}> Close </button>
 							</Modal.Footer>
 						</Modal>
 						{/* End Modal */}
@@ -152,16 +188,44 @@ function InfoItem(props) {
 
 							<Modal.Body>
                                 <Form>
+
                                     <div class="select-size-div-1">
-                                        <Form.Check type="radio" label="Small" id="small" checked onClick={setSmallSize}/>
-                                    </div>
-                                    
-                                    <div class="select-size-div-1">
-                                        <Form.Check type="radio" label="Medium" id="medium" onClick={setMediumSize}/>
+                                        <div class="size-of-size-and-cost">
+                                            <Form.Check type="radio" label="Small" id="small" checked onClick={setSmallSize}/>
+                                        </div>
+
+                                        <div class="cost-of-size-and-cost">
+                                            <h6>
+                                                {props.item.pricePerSizes[0].price} đ{' '}
+                                            </h6>                                       
+                                        </div>
+                                        
                                     </div>
 
                                     <div class="select-size-div-1">
+                                        <div class="size-of-size-and-cost">
+                                            <Form.Check type="radio" label="Medium" id="medium" onClick={setMediumSize}/>
+                                        </div>
+
+                                        <div class="cost-of-size-and-cost">
+                                            <h6>
+                                                {props.item.pricePerSizes[1].price} đ{' '}
+                                            </h6>                                       
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="select-size-div-1">
+                                        <div class="size-of-size-and-cost">
                                         <Form.Check type="radio" label="Large" id="large" onClick={setLargeSize}/>
+                                        </div>
+
+                                        <div class="cost-of-size-and-cost">
+                                            <h6>
+                                                {props.item.pricePerSizes[2].price} đ{' '}
+                                            </h6>                                       
+                                        </div>
+                                        
                                     </div>
                                     
                                 </Form>
