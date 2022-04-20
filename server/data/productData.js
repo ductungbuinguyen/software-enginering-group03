@@ -7,9 +7,9 @@ const products = [
 		shortDescription: 'Bacon, Onion, Mushroom ...',
 		category: 'Pizzas',
 		pricePerSizes: [
-			{ size: 'S', price: '80000' },
-			{ size: 'M', price: '90000' },
-			{ size: 'L', price: '100000' },
+			{ size: 'S', price: '40.000' },
+			{ size: 'M', price: '65.000' },
+			{ size: 'L', price: '90.000' },
 		],
 		nutrition: {
 			small: 300,
@@ -26,9 +26,9 @@ const products = [
 		shortDescription: 'Ragu, Mozzarella',
 		category: 'Pizzas',
 		pricePerSizes: [
-			{ size: 'S', price: '80000' },
-			{ size: 'M', price: '90000' },
-			{ size: 'L', price: '100000' },
+			{ size: 'S', price: '60.000' },
+			{ size: 'M', price: '90.000' },
+			{ size: 'L', price: '110.000' },
 		],
 		nutrition: {
 			small: 300,
@@ -45,9 +45,9 @@ const products = [
 		shortDescription: 'Bacon, Sausage, Jalapeno ...',
 		category: 'Pizzas',
 		pricePerSizes: [
-			{ size: 'S', price: '80000' },
-			{ size: 'M', price: '90000' },
-			{ size: 'L', price: '100000' },
+			{ size: 'S', price: '70.000' },
+			{ size: 'M', price: '95.000' },
+			{ size: 'L', price: '120.000' },
 		],
 		nutrition: {
 			small: 300,
@@ -64,9 +64,9 @@ const products = [
 		shortDescription: 'Tomato, Corn, Broccoli ...',
 		category: 'Pizzas',
 		pricePerSizes: [
-			{ size: 'S', price: '80000' },
-			{ size: 'M', price: '90000' },
-			{ size: 'L', price: '100000' },
+			{ size: 'S', price: '55.000' },
+			{ size: 'M', price: '70.000' },
+			{ size: 'L', price: '90.000' },
 		],
 		nutrition: {
 			small: 300,
@@ -83,9 +83,9 @@ const products = [
 		shortDescription: 'Lettuce, Grilled Chicken ...',
 		category: 'Salads',
 		pricePerSizes: [
-			{ size: 'S', price: '80000' },
-			{ size: 'M', price: '90000' },
-			{ size: 'L', price: '100000' },
+			{ size: 'S', price: '40.000' },
+			{ size: 'M', price: '50.000' },
+			{ size: 'L', price: '60.000' },
 		],
 		nutrition: {
 			small: 300,
@@ -102,9 +102,9 @@ const products = [
 		shortDescription: 'Tomato, Onion, Olives ... ',
 		category: 'Salads',
 		pricePerSizes: [
-			{ size: 'S', price: '80000' },
-			{ size: 'M', price: '90000' },
-			{ size: 'L', price: '100000' },
+			{ size: 'S', price: '30.000' },
+			{ size: 'M', price: '40.000' },
+			{ size: 'L', price: '50.0000' },
 		],
 		nutrition: {
 			small: 300,
@@ -121,9 +121,9 @@ const products = [
 		shortDescription: 'With lime and pasta ...',
 		category: 'Vegetarian',
 		pricePerSizes: [
-			{ size: 'S', price: '80000' },
-			{ size: 'M', price: '90000' },
-			{ size: 'L', price: '100000' },
+			{ size: 'S', price: '90.000' },
+			{ size: 'M', price: '120.000' },
+			{ size: 'L', price: '160.000' },
 		],
 		nutrition: {
 			small: 300,
@@ -140,9 +140,9 @@ const products = [
 		shortDescription: 'Rice, Soy Sauce ...',
 		category: 'Vegetarian',
 		pricePerSizes: [
-			{ size: 'S', price: '80000' },
-			{ size: 'M', price: '90000' },
-			{ size: 'L', price: '100000' },
+			{ size: 'S', price: '100.000' },
+			{ size: 'M', price: '150.000' },
+			{ size: 'L', price: '200.000' },
 		],
 		nutrition: {
 			small: 300,
@@ -159,9 +159,9 @@ const products = [
 		shortDescription: 'Bacon, Cucumber, Cheese ...',
 		category: 'Burgers',
 		pricePerSizes: [
-			{ size: 'S', price: '80000' },
-			{ size: 'M', price: '90000' },
-			{ size: 'L', price: '100000' },
+			{ size: 'S', price: '80.000' },
+			{ size: 'M', price: '120.000' },
+			{ size: 'L', price: '150.000' },
 		],
 		nutrition: {
 			small: 300,
@@ -179,9 +179,9 @@ const products = [
 		shortDescription: 'Double Meat, Bacon, Cheese ... ',
 		category: 'Burgers',
 		pricePerSizes: [
-			{ size: 'S', price: '80000' },
-			{ size: 'M', price: '90000' },
-			{ size: 'L', price: '100000' },
+			{ size: 'S', price: '120.000' },
+			{ size: 'M', price: '160.000' },
+			{ size: 'L', price: '200.000' },
 		],
 		nutrition: {
 			small: 300,
@@ -199,9 +199,9 @@ const products = [
 		shortDescription: 'Double Cheese, Tomato ... ',
 		category: 'Burgers',
 		pricePerSizes: [
-			{ size: 'S', price: '80000' },
-			{ size: 'M', price: '90000' },
-			{ size: 'L', price: '100000' },
+			{ size: 'S', price: '60.000' },
+			{ size: 'M', price: '90.000' },
+			{ size: 'L', price: '110.000' },
 		],
 		nutrition: {
 			small: 300,
@@ -218,9 +218,9 @@ const products = [
 		shortDescription: 'Mexican Topping, Onion ... ',
 		category: 'Burgers',
 		pricePerSizes: [
-			{ size: 'S', price: '80000' },
-			{ size: 'M', price: '90000' },
-			{ size: 'L', price: '100000' },
+			{ size: 'S', price: '100.000' },
+			{ size: 'M', price: '120.000' },
+			{ size: 'L', price: '150.000' },
 		],
 		nutrition: {
 			small: 300,

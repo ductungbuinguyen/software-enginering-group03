@@ -162,3 +162,26 @@ select {
     font-size: 11px;
     letter-spacing: 1px;
 }
+
+.select-size-div-1 {
+    border: 2px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    margin: 15px;
+    padding: 5px;
+}
+
+.select-size-div-2 {
+    border: 2px solid orange;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 5px;
+}
+
+.select-size-div-1:hover {
+    border: 2px solid orange;
+}
+
+.button-sendorder {
+    margin: 20px;
+}
+

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import OrderSummary from '../components/menu/OrderSummary/OrderSummary';
 import ListItem from '../components/item/ListItem';
 import '../Style/MainMenu.css';
 
 const MainMenu = () => {
+
+    const [ListFood, setListFood] = useState([]);
+
 	return (
 		<div id='main-menu'>
 			<div class='sub-header'>
@@ -17,12 +20,12 @@ const MainMenu = () => {
 						<div class='col-lg-8 main-menu__content'>
 							<section class='content_filter'></section>
 							<section class='content_list-menu'>
-								<ListItem />
+								<ListItem listorder_of_mainmemu={ListFood} setlistorder_of_mainmemu={setListFood}/>
 							</section>
 						</div>
 						<div class='col-lg-4'>
 							<div class='main-menu__order-summary'>
-								<OrderSummary listFood={[]} />
+								<OrderSummary listFood={ListFood} />
 							</div>
 						</div>
 					</div>
