@@ -10,19 +10,19 @@ class Filter extends React.Component {
         super(props);
 
         this.state = {
-            // search: '',
+            search: '',
             choose: 'all'
         }
 
-        // this.handleChange = this.handleChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.handleSelect = this.handleSelect.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
 
-    // handleChange(e) {
-    //     const value = e.target.value;
-    //     this.setState({search: value});
-    // }
+    handleChange(e) {
+        const value = e.target.value;
+        this.setState({search: value});
+    }
 
     handleSelect(e) {
         const value = e.target.value;
@@ -30,7 +30,7 @@ class Filter extends React.Component {
     }
 
     handleClick() {
-        this.setState({choose: 'all'});
+        this.setState({choose: 'all', search: ''});
     }
 
     render() {
@@ -62,10 +62,10 @@ class Filter extends React.Component {
                     </select>
                 </div>
                 <div className="grid-item item4">
-                    <input type='text' className="search" placeholder="Search..." />
+                    <input type='text' className="search" placeholder="Search..." onChange={this.handleChange} value={this.state.search}/>
                 </div>
             </div>
-            <ListItem chose={this.state.choose} />
+            <ListItem chose={this.state.choose} searched={this.state.search} />
             </div>
         );
     }
