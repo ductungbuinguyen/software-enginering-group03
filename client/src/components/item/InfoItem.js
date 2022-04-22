@@ -31,46 +31,53 @@ function InfoItem(props) {
 
     /* set radio select size */
     var selectedName = props.item.name;
-    var selectedSize = "small";
+    var selectedImage = props.item.image;
+    var selectedSize = "Small";
+    var selectedPrice = "";
 
     function setSmallSize() {
         document.getElementById("medium").checked = false;
         document.getElementById("large").checked = false;
-        selectedSize = "small";
+        selectedSize = "Small";
     }
     function setMediumSize() {
         document.getElementById("small").checked = false;
         document.getElementById("large").checked = false;
-        selectedSize = "medium";
+        selectedSize = "Medium";
     }
     function setLargeSize() {
         document.getElementById("small").checked = false;
         document.getElementById("medium").checked = false;
-        selectedSize = "large";
+        selectedSize = "Large";
     }
 
 
     /* send order to summary cart */
-//////////////////////////////////////////////////////////////////////
-    const [OrderOne, setOrderOne] = useState([]);                   //
-    //var listorderfood = props.listorder_of_listitem;              //         
-                                                                    //
-    function sendOrder() {                                          //
-        /* order vao gio hang */                                    //
-        setOrderOne([                                               //      Error here
-            {                                                       //
-                name: selectedName,                                 //
-                size: selectedSize,                                 //
-            }                                                       //
-        ]);    
-                                                                    //
-        //setlistorderfood(...listorderfood, OrderOne); 
-        //listorderfood = OrderOne;  
 
-        props.setlistorder(OrderOne);                                        //
-        hideSelectSize();                                           //
-    }                                                               //
-//////////////////////////////////////////////////////////////////////
+    function sendOrder() {                                          
+        /* order vao gio hang */
+
+        if (selectedSize == "Small") {
+            selectedPrice = props.item.pricePerSizes[0].price;
+        } 
+        else if (selectedSize == "Medium") {
+            selectedPrice = props.item.pricePerSizes[1].price;
+        }
+        else {
+            selectedPrice = props.item.pricePerSizes[2].price;
+        }
+
+        const order = {
+            name: selectedName, 
+            image: selectedImage,                                    
+            size: selectedSize,
+            price: selectedPrice,
+        };                                          
+
+        props.setlistorder(order);                                  
+        hideSelectSize();                                           
+    }                                                               
+
 
 	return (
 		<div class='box-InfoItem'>

@@ -5,11 +5,10 @@ import '../Style/MainMenu.css';
 
 const MainMenu = () => {
 
-    var test = [{name: "hi", size: "small"}];
-    var ListFood = test;
+    const ListOrder = [];
 
-    function setListFood(newdata) {
-        ListFood = newdata;
+    const updateListOrder = (neworder) => {
+        ListOrder.push(neworder);
     }
 
 	return (
@@ -25,13 +24,12 @@ const MainMenu = () => {
 						<div class='col-lg-8 main-menu__content'>
 							<section class='content_filter'></section>
 							<section class='content_list-menu'>
-								<ListItem listorder_of_mainmemu={ListFood} setlistfood={setListFood}/>
+								<ListItem setlistfood={updateListOrder}/>
 							</section>
 						</div>
 						<div class='col-lg-4'>
 							<div class='main-menu__order-summary'>
-								<OrderSummary listFood={ListFood} />
-                                {ListFood[0].name}
+								<OrderSummary listFood={ListOrder} />
 							</div>
 						</div>
 
