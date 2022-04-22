@@ -2,9 +2,10 @@ import React from 'react'
 import CartItem from './CartItem';
 import '../../../Style/OrderSummary.css'
 import { useState  } from 'react'
+import {Row,Col,Toast,Button} from 'react-bootstrap'
 
 const delevery=10;
-const productTests = [
+let productTests = [
     {
         name: "Pizza",
         image: "https://ultimatewebsolutions.net/foodboard/img/gallery/grid-items-large/04.jpg",
@@ -12,7 +13,8 @@ const productTests = [
           "Flour, sausage, tomato, cheese",
         category: "Pizza",
         price: "45.000",
-        nutrition: "Medium"
+        nutrition: "Medium",
+        qty:1
     },
     {
         name: "Noodles",
@@ -21,7 +23,8 @@ const productTests = [
           "Beaf Meat, Bacon, Cucumber, Cheese, Caramelized Onion Jam",
         category: "Noodles",
         price: "20.000",
-        nutrition:"Small"
+        nutrition:"Small",
+        qty:1
     },
     {
         name: "Salad",
@@ -30,46 +33,160 @@ const productTests = [
           "Beaf Meat, Bacon, Cucumber, Cheese, Caramelized Onion Jam",
         category: "Main Dish",
         price: "15.000",
-        nutrition:"Large"
+        nutrition:"Large",
+        qty:1
     }
 ]
-  
- const OrderSummary = () => {
+
+ const OrderSummary = ( props ) => {
     const [IsForm1,setIsForm1] = useState(true)
+    const [ProductsArr , setProductsArr ] = useState([...productTests])
     const [totalPriceOrder,setTotalPriceOrder] = useState(()=>{
-        const total = productTests.reduce(  (sum, cur) => sum + parseFloat(cur.price),0  );
+        const total = ProductsArr.reduce(  (sum, cur) => sum + parseFloat(cur.price),0  );
         return total
     }); 
+    const [Info,setInfor] = useState({
+        FullName: '',
+        Phone:'',
+        Email:'',
+        Address:'',
+        Mess:''
+    })
+    const [show, setShow] = useState(false);
 
-    
-    
-
+// Chuyen tab
+/*********************************************/ 
     const moveTo1 = () =>{
-        setIsForm1(pre=> true)
+            setIsForm1(pre=> true)
     }
     const moveTo2 = () =>{
-        setIsForm1(pre=> false)
+        if(ProductsArr.length===0){
+            alert("Your cart is empty!")
+            return
+        }
+        else
+            setIsForm1(pre=> false)
     }
+/*********************************************/ 
+
+
+// Xu ly so luong va gia tong
+/*********************************************/ 
     const addToTalPriceOrder = (addValue)=>{
         setTotalPriceOrder(pre => pre+addValue)
     }
+    const deleteItem = (index) => {
 
-    const carts = productTests.map( (productTest,index) => 
-        <li key={index}>
-            <CartItem product={productTest} addTotal={addToTalPriceOrder}/>
-        </li>
-     )
+        setProductsArr( pre => {
+            let newArr=[...pre]
+            newArr.splice(index,1)
+            return newArr
+        })
+    }
+    const increaseQty= (index) => {
+        setProductsArr( pre =>{
+            pre[index].qty++
+            return pre
+        } )
+    }
+    const decreaseQty= (index) => {
+        setProductsArr( pre =>{
+            pre[index].qty--
+            return pre
+        } )
+    }
+/*********************************************/ 
 
+
+//Xu ly form
+/*********************************************/ 
+    const handleInfor = (e,field) => {
+
+        switch(field) {
+            case 'FullName':
+                setInfor(pre => {
+                    let obj = {...pre}
+                    obj.FullName=e.target.value
+                    return obj
+                })
+            break
+
+            case 'Phone':
+                setInfor(pre => {
+                    let obj = {...pre}
+                    obj.Phone=e.target.value
+                    return obj
+                })
+            break
+
+            case 'Email':
+                setInfor(pre => {
+                    let obj = {...pre}
+                    obj.Email=e.target.value
+                    return obj
+                })
+            break
+
+            case 'Address':
+                setInfor(pre => {
+                    let obj = {...pre}
+                    obj.Address=e.target.value
+                    return obj
+                })
+            break
+
+            case 'Mess':
+                setInfor(pre => {
+                    let obj = {...pre}
+                    obj.Mess=e.target.value
+                    return obj
+                })
+            break
+
+            default:
+                return
+        }
+
+
+    }
+    const handleSubmit= (e) => {
+        e.preventDefault()
+        setInfor( pre => {
+            let obj={...pre}
+            obj.FullName=''
+            obj.Phone=''
+            obj.Email=''
+            obj.Mess=''
+            obj.Address=''
+            return obj
+        })
+        setProductsArr([])
+        setTotalPriceOrder(0)
+        setShow(true)
+    }
+/*********************************************/ 
+
+    const carts = (ProductsArr.length!==0)?
+
+                    ProductsArr.map( (product,index) => 
+                    <CartItem key={index}  product={product} 
+                    addTotal={addToTalPriceOrder} handleDelete={deleteItem} 
+                    index={index} handleIncr={increaseQty} handleDecr={decreaseQty}/>):
+                    
+                  <CartItem/>
+    
+    
+    
     return(
-        <form id='OrderSummary'>
-
+        <form id='OrderSummary' onSubmit={e=>handleSubmit(e)}>
+            
             <div class='headerSummary'>
               <h3>Order Summary {IsForm1?'1':'2'}/2</h3> 
             </div>
 
             <div class='oderDetail' style={IsForm1 ? {display:"block"} : {display:"none"} }>
                 <ul>
-                    { carts}
+                    { carts }
                 </ul>
                <div class='delivery'>
                    <div>
@@ -98,15 +215,15 @@ const productTests = [
                        <i class="fa-solid fa-chevron-right"></i>
                    </div>
                </div>
-
+               
             </div>
             
             <div class='fieldInfo' style={IsForm1 ? {display:"none"} : {display:"block"} }>
-                <input type="text" class='field' name='fullName' placeholder='Full Name'></input>
-                <input type="text" class='field' name='phone' placeholder='Phone'></input>
-                <input type="email" class='field' name='email' placeholder='Email'></input>
-                <input type="text" class='field' name='address' placeholder='Delevery Address'></input>
-                <input type="text" class='field' name='message' placeholder='Message'></input>
+                <input type="text" class='field' name='fullName' placeholder='Full Name' value={Info.FullName} onChange={e=>handleInfor(e,'FullName')}></input>
+                <input type="text" class='field' name='phone' placeholder='Phone' value={Info.Phone}  onChange={e=>handleInfor(e,'Phone')}></input>
+                <input type="email" class='field' name='email' placeholder='Email' value={Info.Email}  onChange={e=>handleInfor(e,'Email')}></input>
+                <input type="text" class='field' name='address' placeholder='Delevery Address' value={Info.Address}  onChange={e=>handleInfor(e,'Address')}></input>
+                <input type="text" class='field' name='message' placeholder='Message' value={Info.Mess}  onChange={e=>handleInfor(e,'Mess')}></input>
 
                 <div class='totalOrder'>
                    <div>
@@ -132,16 +249,27 @@ const productTests = [
                        <i class="fa-solid fa-check"></i>
                     </div>
                </button>
+
                <div class='backButton' onClick={moveTo1}>
                    <div>
                        <div>
                            Back
                        </div>
-                       <i class="fa-solid fa-chevron-right"></i>
+                       <i class="fa-solid fa-chevron-left"></i>
                    </div>
                </div>
+               
             </div>
-            
+
+            <div className='Toast'>
+                <Toast onClose={() => setShow(false)} show={show} delay={3000} autohide>
+                    <Toast.Header id='Toast_Header' closeVariant='white'>
+                        <strong className="me-auto">Thank you</strong>
+                    </Toast.Header>
+                    <Toast.Body >Your order has been submit !</Toast.Body>
+                </Toast>    
+            </div>
+
         </form>
     );
  }

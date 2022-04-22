@@ -1,60 +1,58 @@
 import React from 'react'
 import { useState  } from 'react'
 import '../../../Style/CartItem.css'
-let img,name,size,price
 
 const CartItem = (props) => {
+    let food = {
+        name: "Your cart is empty",
+        image: "https://ultimatewebsolutions.net/foodboard/img/bg/empty-cart-small.jpg",
+        price: 0,
+        nutrition: "Start adding items",
+        qty:0
+    }
 
     if(typeof props.product!="undefined"){
-         img=props.product.image 
-         name=props.product.name 
-         size=props.product.nutrition 
-         price=parseFloat(props.product.price)
-    }
-    else{
-         img="https://ultimatewebsolutions.net/foodboard/img/bg/empty-cart-small.jpg" 
-         name="Your cart is empty" 
-         size="Start adding items" 
-         price=0
-    }
-
+        food.name=props.product.name
+        food.image=props.product.image
+        food.price=parseFloat(props.product.price)
+        food.nutrition=props.product.nutrition
+        food.qty=props.product.qty
+   }
     
-
-    const [qty,setQty] = useState(1);    
-    const [totalPrice,setTotalPrice] = useState(price);
-     
     const increaseQty= ()=> {
-                setQty(pre => pre+1)
-                setTotalPrice( pre=> pre+price)
-                props.addTotal(price)
+                props.handleIncr(props.index)
+                props.addTotal(food.price)
     }
 
     const decreaseQty = () => {
-        if(qty>0){
-            setQty(pre=>pre-1);
-            setTotalPrice(pre=> pre-price)
-            props.addTotal(-price)
-        }
+                if(props.product.qty>0){
+                    props.handleDecr(props.index)
+                    props.addTotal(-food.price)
+                }
+    }
+    const handleDelete = () => {
+        props.addTotal(-food.price*food.qty)
+        props.handleDelete(props.index)
     }
 
     return(
-            <li id="cartItem04M">
+            <li className="cartItem04M">
                 <div class="order-list-img">
-                    <img src={img} alt=""/>
+                    <img src={food.image} alt=""/>
                 </div>
                 <div class="order-list-details">
                     <div>
-                        <h4> {name} <br/>    <small>{size}</small>    </h4>
+                        <h4> {food.name} <br/>    <small>{food.nutrition}</small>    </h4>
                         <div class="qty-buttons"> 
                             <i class="fa-solid fa-minus qtyminus" onClick={decreaseQty}></i>
-                            <input type="text" name="qty" value={qty} class="qty"/> 
+                            <input type="text" name="qty" value={food.qty} class="qty"/> 
                             <i class="fa-solid fa-plus qtyplus" onClick={increaseQty}></i>
                         </div>
                     </div>
                     <div>
-                        <div class="order-list-price">$ {totalPrice.toFixed(2)}</div>
+                        <div class="order-list-price">$ {food.price*food.qty.toFixed(2)}</div>
                         <div class="order-list-delete">
-                            <a href="google.com" id="deleteCartItem04M"><i class="fa-solid fa-trash-can"></i></a>
+                            <i class="fa-solid fa-trash-can" onClick={handleDelete}></i>
                         </div>
                     </div>
                     
