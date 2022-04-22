@@ -1,6 +1,7 @@
 
 #OrderSummary{
-    width: 400px;
+    width: 100%;
+    
 }
 #OrderSummary .headerSummary{
     text-align: left;
@@ -142,6 +143,7 @@
     padding: 10px 40px;
     width: 100%;
     border: 1px solid transparent;
+    overflow-y: hidden;
 }
 #OrderSummary .fieldInfo .submitButton div:nth-child(1){
     display: flex;
@@ -161,6 +163,7 @@
     padding: 10px 40px;
     width: 100%;
     border: 2px solid black;
+    overflow-y: hidden;
 }
 #OrderSummary .fieldInfo .backButton div:nth-child(1){
     display: flex;
@@ -172,5 +175,25 @@
 #OrderSummary .backButton:hover div:nth-child(1){
     transform: translateX(-50%)
 }
+
+.Toast{
+    position: fixed;
+    top: 250px;
+    right: 10px;
+    z-index: 9;
+    
+    border-radius: 10px;
+}
+.Toast Toast{
+    border-radius: 10px;
+    background-color: white;
+}
+
+#Toast_Header{
+    background-color: #f25c04;
+    color: #fff;
+}
+
+
 
 

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import OrderSummary from '../components/menu/OrderSummary/OrderSummary';
 import ListItem from '../components/item/ListItem';
 import '../Style/MainMenu.css';
 
 const MainMenu = () => {
+		
+
 	return (
 		<div id='main-menu'>
 			<div class='sub-header'>

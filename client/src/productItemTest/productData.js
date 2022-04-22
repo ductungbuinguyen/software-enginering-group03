@@ -1,7 +1,7 @@
 const products = [
   {
     name: "Pizza",
-    image: "../assets/pizza.jpg",
+    image: "https://ultimatewebsolutions.net/foodboard/img/gallery/grid-items-large/04.jpg",
     description:
       "Flour, sausage, tomato, cheese",
     category: "Pizza",
