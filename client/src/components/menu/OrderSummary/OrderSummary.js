@@ -2,7 +2,7 @@ import React from 'react'
 import CartItem from './CartItem';
 import '../../../Style/OrderSummary.css'
 import { useState, useEffect  } from 'react'
-import {Toast} from 'react-bootstrap'
+import {Toast,Form} from 'react-bootstrap'
 
 const delevery=10000;
 
@@ -17,7 +17,8 @@ const OrderSummary = ( props ) => {
         Address:'',
         Mess:''
     })
-    const [show, setShow] = useState(false);
+    const [showSubmit, setShowSubmit] = useState(false);
+    const [showEmpty, setShowEmpty] = useState(false);
 
 // Chuyen tab
 /*********************************************/ 
@@ -26,7 +27,7 @@ const OrderSummary = ( props ) => {
     }
     const moveTo2 = () =>{
         if(props.ListOrder.length===0){
-            alert("Your cart is empty!")
+            setShowEmpty(true)
             return
         }
         else
@@ -93,8 +94,8 @@ const OrderSummary = ( props ) => {
 
 
     }
-    const handleSubmit= (e) => {
-        e.preventDefault()
+    const handleSubmit= (event) => {
+        
         setInfor( pre => {
             let obj={...pre}
             obj.FullName=''
@@ -104,9 +105,10 @@ const OrderSummary = ( props ) => {
             obj.Address=''
             return obj
         })
+        event.preventDefault()
         props.handleClearListOrder()
         totalPriceOrder=0
-        setShow(true)
+        setShowSubmit(true)
     }
 /*********************************************/ 
 
@@ -161,11 +163,11 @@ const OrderSummary = ( props ) => {
             </div>
             
             <div class='fieldInfo' style={IsForm1 ? {display:"none"} : {display:"block"} }>
-                <input type="text" class='field' name='fullName' placeholder='Full Name' value={Info.FullName} onChange={e=>handleInfor(e,'FullName')}></input>
-                <input type="text" class='field' name='phone' placeholder='Phone' value={Info.Phone}  onChange={e=>handleInfor(e,'Phone')}></input>
-                <input type="email" class='field' name='email' placeholder='Email' value={Info.Email}  onChange={e=>handleInfor(e,'Email')}></input>
-                <input type="text" class='field' name='address' placeholder='Delevery Address' value={Info.Address}  onChange={e=>handleInfor(e,'Address')}></input>
-                <input type="text" class='field' name='message' placeholder='Message' value={Info.Mess}  onChange={e=>handleInfor(e,'Mess')}></input>
+                <input type="text" class='field' required name='fullName' placeholder='Full Name' value={Info.FullName} onChange={e=>handleInfor(e,'FullName')}></input>
+                <input type="text" class='field' required name='phone' placeholder='Phone' value={Info.Phone}  onChange={e=>handleInfor(e,'Phone')}></input>
+                <input type="email" class='field' required name='email' placeholder='Email' value={Info.Email}  onChange={e=>handleInfor(e,'Email')}></input>
+                <input type="text" class='field' required name='address' placeholder='Delevery Address' value={Info.Address}  onChange={e=>handleInfor(e,'Address')}></input>
+                <input type="text" class='field' required name='message' placeholder='Message' value={Info.Mess}  onChange={e=>handleInfor(e,'Mess')}></input>
 
                 <div class='totalOrder'>
                    <div>
@@ -177,7 +179,7 @@ const OrderSummary = ( props ) => {
                 </div>
                 <div class='acceptTerms'>
                    <div>
-                       <input type="checkbox"></input>
+                       <input type="checkbox" required></input>
                        <span>Accept </span>
                        <a href='#'>Terms</a>
                    </div>
@@ -204,11 +206,20 @@ const OrderSummary = ( props ) => {
             </div>
 
             <div className='Toast'>
-                <Toast onClose={() => setShow(false)} show={show} delay={3000} autohide>
+                <Toast onClose={() => setShowSubmit(false)} show={showSubmit} delay={3000} autohide id='toastSubmit'> 
                     <Toast.Header id='Toast_Header' closeVariant='white'>
                         <strong className="me-auto">Thank you</strong>
                     </Toast.Header>
                     <Toast.Body >Your order has been submit !</Toast.Body>
+                </Toast>    
+            </div>
+
+            <div className='Toast'>
+                <Toast onClose={() => setShowEmpty(false)} show={showEmpty} delay={3000} autohide id='toastEmpty'>
+                    <Toast.Header id='Toast_Header' closeVariant='white'>
+                        <strong className="me-auto">Opp!</strong>
+                    </Toast.Header>
+                    <Toast.Body >Your cart is empty !</Toast.Body>
                 </Toast>    
             </div>
 
