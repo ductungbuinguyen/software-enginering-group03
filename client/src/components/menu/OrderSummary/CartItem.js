@@ -4,36 +4,40 @@ import '../../../Style/CartItem.css'
 
 const CartItem = (props) => {
     let food = {
-        name: "Your cart is empty",
-        image: "https://ultimatewebsolutions.net/foodboard/img/bg/empty-cart-small.jpg",
+        name: "Your cart is empty", 
+        image: "https://ultimatewebsolutions.net/foodboard/img/bg/empty-cart-small.jpg",                                    
+        size: "Start adding items",
         price: 0,
-        nutrition: "Start adding items",
-        qty:0
+        qty:1
     }
 
-    if(typeof props.product!="undefined"){
-        food.name=props.product.name
-        food.image=props.product.image
-        food.price=parseFloat(props.product.price)
-        food.nutrition=props.product.nutrition
-        food.qty=props.product.qty
+    if(typeof props.food!="undefined"){
+        food.name=props.food.name
+        food.image=props.food.image
+        food.price=parseFloat(props.food.price)
+        food.size=props.food.size
+        food.qty=props.food.qty
    }
     
     const increaseQty= ()=> {
-                props.handleIncr(props.index)
-                props.addTotal(food.price)
+        
+        props.addTotal(food.price)
+        props.handleQty(props.index,1)
     }
 
     const decreaseQty = () => {
-                if(props.product.qty>0){
-                    props.handleDecr(props.index)
-                    props.addTotal(-food.price)
-                }
+        if(props.food.qty>0){
+            props.addTotal(-food.price)
+            props.handleQty(props.index,-1)
+        }
     }
+    
     const handleDelete = () => {
         props.addTotal(-food.price*food.qty)
         props.handleDelete(props.index)
     }
+
+    
 
     return(
             <li className="cartItem04M">
@@ -42,7 +46,7 @@ const CartItem = (props) => {
                 </div>
                 <div class="order-list-details">
                     <div>
-                        <h4> {food.name} <br/>    <small>{food.nutrition}</small>    </h4>
+                        <h4> {food.name} <br/>    <small>{food.size}</small>    </h4>
                         <div class="qty-buttons"> 
                             <i class="fa-solid fa-minus qtyminus" onClick={decreaseQty}></i>
                             <input type="text" name="qty" value={food.qty} class="qty"/> 
@@ -50,7 +54,7 @@ const CartItem = (props) => {
                         </div>
                     </div>
                     <div>
-                        <div class="order-list-price">$ {food.price*food.qty.toFixed(2)}</div>
+                        <div class="order-list-price">{new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(food.price*food.qty)}</div>
                         <div class="order-list-delete">
                             <i class="fa-solid fa-trash-can" onClick={handleDelete}></i>
                         </div>
