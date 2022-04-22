@@ -63,6 +63,7 @@
     display: inline-block;
     width: 80%;
     text-align: left;
+    padding: 5px;
 }
 .cost-of-size-and-cost {
     display: inline-block;
@@ -200,7 +201,7 @@ select {
     border: 2px solid rgb(190, 190, 190);
     border-radius: 5px;
     margin: 15px;
-    padding: 5px;
+    
 }
 
 .select-size-div-2 {
@@ -217,4 +218,3 @@ select {
 .button-sendorder {
     margin: 20px;
 }
-

@@ -30,6 +30,7 @@ function InfoItem(props) {
 
 
     /* set radio select size */
+    var selectedName = props.item.name;
     var selectedSize = "small";
 
     function setSmallSize() {
@@ -48,12 +49,28 @@ function InfoItem(props) {
         selectedSize = "large";
     }
 
+
     /* send order to summary cart */
-    function sendOrder() {
-        /* order vao gio hang */
-        props.setlistorder_of_listitem(...props.listorder_of_listitem, props.item, selectedSize); 
-        hideSelectSize();
-    }
+//////////////////////////////////////////////////////////////////////
+    const [OrderOne, setOrderOne] = useState([]);                   //
+    //var listorderfood = props.listorder_of_listitem;              //         
+                                                                    //
+    function sendOrder() {                                          //
+        /* order vao gio hang */                                    //
+        setOrderOne([                                               //      Error here
+            {                                                       //
+                name: selectedName,                                 //
+                size: selectedSize,                                 //
+            }                                                       //
+        ]);    
+                                                                    //
+        //setlistorderfood(...listorderfood, OrderOne); 
+        //listorderfood = OrderOne;  
+
+        props.setlistorder(OrderOne);                                        //
+        hideSelectSize();                                           //
+    }                                                               //
+//////////////////////////////////////////////////////////////////////
 
 	return (
 		<div class='box-InfoItem'>

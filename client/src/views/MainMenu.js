@@ -5,7 +5,12 @@ import '../Style/MainMenu.css';
 
 const MainMenu = () => {
 
-    const [ListFood, setListFood] = useState([]);
+    var test = [{name: "hi", size: "small"}];
+    var ListFood = test;
+
+    function setListFood(newdata) {
+        ListFood = newdata;
+    }
 
 	return (
 		<div id='main-menu'>
@@ -20,14 +25,18 @@ const MainMenu = () => {
 						<div class='col-lg-8 main-menu__content'>
 							<section class='content_filter'></section>
 							<section class='content_list-menu'>
-								<ListItem listorder_of_mainmemu={ListFood} setlistorder_of_mainmemu={setListFood}/>
+								<ListItem listorder_of_mainmemu={ListFood} setlistfood={setListFood}/>
 							</section>
 						</div>
 						<div class='col-lg-4'>
 							<div class='main-menu__order-summary'>
 								<OrderSummary listFood={ListFood} />
+                                {ListFood[0].name}
 							</div>
 						</div>
+
+                        <div>
+                        </div>
 					</div>
 				</div>
 			</div>
