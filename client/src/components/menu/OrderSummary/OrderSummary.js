@@ -1,50 +1,15 @@
 import React from 'react'
 import CartItem from './CartItem';
 import '../../../Style/OrderSummary.css'
-import { useState  } from 'react'
-import {Row,Col,Toast,Button} from 'react-bootstrap'
+import { useState, useEffect  } from 'react'
+import {Toast,Form} from 'react-bootstrap'
 
-const delevery=10;
-let productTests = [
-    {
-        name: "Pizza",
-        image: "https://ultimatewebsolutions.net/foodboard/img/gallery/grid-items-large/04.jpg",
-        description:
-          "Flour, sausage, tomato, cheese",
-        category: "Pizza",
-        price: "45.000",
-        nutrition: "Medium",
-        qty:1
-    },
-    {
-        name: "Noodles",
-        image: "https://ultimatewebsolutions.net/foodboard/img/gallery/grid-items-large/09.jpg",
-        description:
-          "Beaf Meat, Bacon, Cucumber, Cheese, Caramelized Onion Jam",
-        category: "Noodles",
-        price: "20.000",
-        nutrition:"Small",
-        qty:1
-    },
-    {
-        name: "Salad",
-        image: "https://ultimatewebsolutions.net/foodboard/img/gallery/grid-items-large/06.jpg",
-        description:
-          "Beaf Meat, Bacon, Cucumber, Cheese, Caramelized Onion Jam",
-        category: "Main Dish",
-        price: "15.000",
-        nutrition:"Large",
-        qty:1
-    }
-]
+const delevery=10000;
 
- const OrderSummary = ( props ) => {
-    const [IsForm1,setIsForm1] = useState(true)
-    const [ProductsArr , setProductsArr ] = useState([...productTests])
-    const [totalPriceOrder,setTotalPriceOrder] = useState(()=>{
-        const total = ProductsArr.reduce(  (sum, cur) => sum + parseFloat(cur.price),0  );
-        return total
-    }); 
+
+const OrderSummary = ( props ) => {
+    let totalPriceOrder = props.ListOrder.reduce(  (sum, cur) => sum + parseFloat(cur.price)*cur.qty,0 );
+    const [IsForm1,setIsForm1] = useState(true) 
     const [Info,setInfor] = useState({
         FullName: '',
         Phone:'',
@@ -52,7 +17,8 @@ let productTests = [
         Address:'',
         Mess:''
     })
-    const [show, setShow] = useState(false);
+    const [showSubmit, setShowSubmit] = useState(false);
+    const [showEmpty, setShowEmpty] = useState(false);
 
 // Chuyen tab
 /*********************************************/ 
@@ -60,8 +26,8 @@ let productTests = [
             setIsForm1(pre=> true)
     }
     const moveTo2 = () =>{
-        if(ProductsArr.length===0){
-            alert("Your cart is empty!")
+        if(props.ListOrder.length===0){
+            setShowEmpty(true)
             return
         }
         else
@@ -73,30 +39,9 @@ let productTests = [
 // Xu ly so luong va gia tong
 /*********************************************/ 
     const addToTalPriceOrder = (addValue)=>{
-        setTotalPriceOrder(pre => pre+addValue)
-    }
-    const deleteItem = (index) => {
-
-        setProductsArr( pre => {
-            let newArr=[...pre]
-            newArr.splice(index,1)
-            return newArr
-        })
-    }
-    const increaseQty= (index) => {
-        setProductsArr( pre =>{
-            pre[index].qty++
-            return pre
-        } )
-    }
-    const decreaseQty= (index) => {
-        setProductsArr( pre =>{
-            pre[index].qty--
-            return pre
-        } )
+        totalPriceOrder+=addValue
     }
 /*********************************************/ 
-
 
 //Xu ly form
 /*********************************************/ 
@@ -149,8 +94,8 @@ let productTests = [
 
 
     }
-    const handleSubmit= (e) => {
-        e.preventDefault()
+    const handleSubmit= (event) => {
+        
         setInfor( pre => {
             let obj={...pre}
             obj.FullName=''
@@ -160,23 +105,22 @@ let productTests = [
             obj.Address=''
             return obj
         })
-        setProductsArr([])
-        setTotalPriceOrder(0)
-        setShow(true)
+        event.preventDefault()
+        props.handleClearListOrder()
+        totalPriceOrder=0
+        setShowSubmit(true)
     }
 /*********************************************/ 
 
-    const carts = (ProductsArr.length!==0)?
-
-                    ProductsArr.map( (product,index) => 
-                    <CartItem key={index}  product={product} 
-                    addTotal={addToTalPriceOrder} handleDelete={deleteItem} 
-                    index={index} handleIncr={increaseQty} handleDecr={decreaseQty}/>):
-                    
+    const carts = (props.ListOrder.length!==0)?
+                    props.ListOrder.map( (food,index) => 
+                    <CartItem 
+                            key={index}  food={food} 
+                            addTotal={addToTalPriceOrder} handleDelete={props.handleRemoveFromListOrder} 
+                            index={index} handleQty={props.handleChangQtyElement}
+                    />):
                   <CartItem/>
-    
-    
-    
+
     return(
         <form id='OrderSummary' onSubmit={e=>handleSubmit(e)}>
             
@@ -196,7 +140,7 @@ let productTests = [
                        Delivery
                    </div>
                    <div>
-                       $ 10.00
+                   {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(delevery)}
                    </div>
                </div>
                <div class='totalOrder'>
@@ -204,7 +148,7 @@ let productTests = [
                        TOTAL
                    </div>
                    <div>
-                        {(totalPriceOrder+delevery).toFixed(2)>10?(totalPriceOrder+delevery).toFixed(2):0}
+                   {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format((totalPriceOrder+delevery)>delevery?(totalPriceOrder+delevery):0)}
                    </div>
                </div>
                <div class='continueButton' onClick={moveTo2}>
@@ -219,23 +163,23 @@ let productTests = [
             </div>
             
             <div class='fieldInfo' style={IsForm1 ? {display:"none"} : {display:"block"} }>
-                <input type="text" class='field' name='fullName' placeholder='Full Name' value={Info.FullName} onChange={e=>handleInfor(e,'FullName')}></input>
-                <input type="text" class='field' name='phone' placeholder='Phone' value={Info.Phone}  onChange={e=>handleInfor(e,'Phone')}></input>
-                <input type="email" class='field' name='email' placeholder='Email' value={Info.Email}  onChange={e=>handleInfor(e,'Email')}></input>
-                <input type="text" class='field' name='address' placeholder='Delevery Address' value={Info.Address}  onChange={e=>handleInfor(e,'Address')}></input>
-                <input type="text" class='field' name='message' placeholder='Message' value={Info.Mess}  onChange={e=>handleInfor(e,'Mess')}></input>
+                <input type="text" class='field' required name='fullName' placeholder='Full Name' value={Info.FullName} onChange={e=>handleInfor(e,'FullName')}></input>
+                <input type="text" class='field' required name='phone' placeholder='Phone' value={Info.Phone}  onChange={e=>handleInfor(e,'Phone')}></input>
+                <input type="email" class='field' required name='email' placeholder='Email' value={Info.Email}  onChange={e=>handleInfor(e,'Email')}></input>
+                <input type="text" class='field' required name='address' placeholder='Delevery Address' value={Info.Address}  onChange={e=>handleInfor(e,'Address')}></input>
+                <input type="text" class='field' required name='message' placeholder='Message' value={Info.Mess}  onChange={e=>handleInfor(e,'Mess')}></input>
 
                 <div class='totalOrder'>
                    <div>
                        TOTAL
                    </div>
                    <div>
-                       {(totalPriceOrder+delevery).toFixed(2)>10?(totalPriceOrder+delevery).toFixed(2):0}
+                   {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format((totalPriceOrder+delevery)>delevery?(totalPriceOrder+delevery):0)}
                    </div>
                 </div>
                 <div class='acceptTerms'>
                    <div>
-                       <input type="checkbox"></input>
+                       <input type="checkbox" required></input>
                        <span>Accept </span>
                        <a href='#'>Terms</a>
                    </div>
@@ -262,11 +206,20 @@ let productTests = [
             </div>
 
             <div className='Toast'>
-                <Toast onClose={() => setShow(false)} show={show} delay={3000} autohide>
+                <Toast onClose={() => setShowSubmit(false)} show={showSubmit} delay={3000} autohide id='toastSubmit'> 
                     <Toast.Header id='Toast_Header' closeVariant='white'>
                         <strong className="me-auto">Thank you</strong>
                     </Toast.Header>
                     <Toast.Body >Your order has been submit !</Toast.Body>
+                </Toast>    
+            </div>
+
+            <div className='Toast'>
+                <Toast onClose={() => setShowEmpty(false)} show={showEmpty} delay={3000} autohide id='toastEmpty'>
+                    <Toast.Header id='Toast_Header' closeVariant='white'>
+                        <strong className="me-auto">Opp!</strong>
+                    </Toast.Header>
+                    <Toast.Body >Your cart is empty !</Toast.Body>
                 </Toast>    
             </div>
 

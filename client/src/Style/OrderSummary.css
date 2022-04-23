@@ -178,14 +178,17 @@
 
 .Toast{
     position: fixed;
-    top: 250px;
-    right: 10px;
-    z-index: 9;
-    
+    bottom: 40px;
+    right: 20px;
+    z-index: 2;
     border-radius: 10px;
 }
-.Toast Toast{
-    border-radius: 10px;
+@media only screen and (max-width:989px) {
+    .Toast{
+        top: 100px;
+    }
+}
+#toastSubmit , #toastEmpty{
     background-color: white;
 }
 

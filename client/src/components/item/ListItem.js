@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import InfoItem from './InfoItem.js';
 import axios from 'axios'
 
-const ListItem = () => {
+function ListItem(props) {
 	let [ products, setProducts ] = useState([])
 	useEffect(() => {
     async function fetchProducts() {
@@ -15,7 +15,7 @@ const ListItem = () => {
 		<div class='row grid'>
 			{products.map((product, index) => (
 				<div class='col-sm-6' key={index}>
-					<InfoItem item={product} />
+					<InfoItem item={product} handleAddToListOrder={props.handleAddToListOrder}/>
 				</div>
 			))}
 		</div>
