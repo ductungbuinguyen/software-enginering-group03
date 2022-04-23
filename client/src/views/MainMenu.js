@@ -3,6 +3,8 @@ import OrderSummary from '../components/menu/OrderSummary/OrderSummary';
 import ListItem from '../components/item/ListItem';
 import '../Style/MainMenu.css';
 
+import Filter from '../components/filter/Filter';
+
 const MainMenu = () => {
 	
 	const [ ListOrder, setListOrder]= useState([])
@@ -34,6 +36,17 @@ const MainMenu = () => {
 		setListOrder([])
 	}
 
+  const [ select, setSelect ] = useState('all');
+  const [ search, setSearch ] = useState('');  
+
+  const handleSelect = (selected) => {
+    setSelect(selected)
+  }
+
+  const handleSearch = (searched) => {
+    setSearch(searched)
+  }
+
 	
 
 	return (
@@ -47,10 +60,15 @@ const MainMenu = () => {
 				<div class='container'>
 					<div class='row'>
 						<div class='col-lg-8 main-menu__content'>
-							<section class='content_filter'></section>
+							
+              <section class='content_filter'>
+                <Filter handleSelect={handleSelect} handleSearch={handleSearch}/>
+              </section>
+
 							<section class='content_list-menu'>
-								<ListItem handleAddToListOrder={handleAddToListOrder}/>
+								<ListItem handleAddToListOrder={handleAddToListOrder} selected={select} searched={search}/>
 							</section>
+
 						</div>
 						<div class='col-lg-4'>
 							<div class='main-menu__order-summary'>
