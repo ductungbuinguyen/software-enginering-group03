@@ -19,7 +19,7 @@ function ListItem(props) {
     {
         return (
             <div className="row grid">
-                <h1> Oops... We don't have it now!!! Another dish please... </h1>
+                <h1> Oops... We currently do not have this dish, please choose another dish... </h1>
             </div>
         );
     } else {
