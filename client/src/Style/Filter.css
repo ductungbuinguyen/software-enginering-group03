@@ -6,13 +6,14 @@
 
 .grid-container {
     font-family: Arial, Helvetica, sans-serif;
-    border-style: groove;
     border-radius: 5px; 
     display: grid;
     gap: 10px;
     background-color: white;
     padding: 10px;
     width: 100%;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 2px 0 rgb(0 2px 2px 0 rgb(9 30 66 / 13%));
 }
 
 .grid-item {
@@ -29,6 +30,9 @@
     grid-row: 1;
     text-align: left;
     padding-bottom: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #555;
 }
 
 .item2 {
@@ -46,36 +50,44 @@
 }
 
 .item2 > button {
-    
-    color: orange;
     background-color: white;
     border: none;
+    color: #f25c04;
+    font-size: 11px;
+    font-weight: 500;
 }
 
 .select {
     display: inline-block;
     width: 100%;
     height: 100%;
-    /* outline-style: groove;
-    outline-color: orange; */
-    border-style: groove;
-    border-radius: 5px; 
-    border-color: orange;
-    border: 2px solid orange;
+    border-radius: 5px;
     padding-left: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 16px;
+    outline: 0px;
 }
-
+.item3 .select:hover {
+    border-color: #f25c04;
+}
+.item3 .select:focus {
+    border-color: #f25c04;
+}
 .search {
     width: 100%;
     height: 100%;
-    border-style: groove;
     border-radius: 5px; 
     border: 0.25px solid gray;
     padding-left: 10px;
+    font-size: 16px;
+    outline: 0px;
 }
 
 .search:focus {
-    border-style: groove;
-    border-radius: 5px; 
-    border: 0.25px solid orange;
+    border: 0.25px solid #f25c04;
+}
+.search:hover { 
+    border: 0.25px solid #f25c04;
 }
