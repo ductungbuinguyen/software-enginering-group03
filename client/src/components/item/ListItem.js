@@ -12,8 +12,8 @@ function ListItem(props) {
     fetchProducts()
   },[])
 
-	const productSelected = props.selected === 'all' ? products : products.filter(product => product.name === props.selected);
-    const productSearched = productSelected.filter(product => product.name.toLowerCase().includes(props.searched) || product.description.toLowerCase().includes(props.searched));
+	const productSelected = props.selected === 'all' ? products : products.filter(product => product.category === props.selected);
+    const productSearched = productSelected.filter(product => product.name.toLowerCase().includes(props.searched.toLowerCase()) || product.description.toLowerCase().includes(props.searched.toLowerCase()));
     const count = productSearched.length;
     if (count == 0)
     {

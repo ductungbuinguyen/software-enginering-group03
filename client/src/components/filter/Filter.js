@@ -37,7 +37,7 @@ function Filter(props) {
         setSearch('');
     };
 
-    const productsName = [...new Set(products.map(products => products.name))];
+    const productsCategory = [...new Set(products.map(products => products.category))];
     return (
         <div>
             <div className="grid-container">
@@ -47,7 +47,7 @@ function Filter(props) {
                     <select className="select" onChange={handleSelect} value={select}>
                         <option value='all'>All</option>
                         {
-                            productsName.map(
+                            productsCategory.map(
                                 (product) => <option value={product}>{product}</option>
                             )
                         }
