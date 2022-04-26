@@ -11,15 +11,28 @@ function ListItem(props) {
     }
     fetchProducts()
   },[])
-	return (
-		<div class='row grid'>
-			{products.map((product, index) => (
-				<div class='col-sm-6' key={index}>
-					<InfoItem item={product} handleAddToListOrder={props.handleAddToListOrder}/>
-				</div>
-			))}
-		</div>
-	);
+
+	const productSelected = props.selected === 'all' ? products : products.filter(product => product.category === props.selected);
+    const productSearched = productSelected.filter(product => product.name.toLowerCase().includes(props.searched.toLowerCase()) || product.description.toLowerCase().includes(props.searched.toLowerCase()));
+    const count = productSearched.length;
+    if (count == 0)
+    {
+        return (
+            <div className="row grid">
+                <h1> Oops... We currently do not have this dish, please choose another dish... </h1>
+            </div>
+        );
+    } else {
+        return (
+			<div class='row grid'>
+				{productSearched.map((product, index) => (
+					<div class='col-sm-6' key={index}>
+						<InfoItem item={product} handleAddToListOrder={props.handleAddToListOrder}/>
+					</div>
+				))}
+			</div>
+		);
+    }
 }
 
 export default ListItem;
