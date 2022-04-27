@@ -1,0 +1,31 @@
+.sub-header {
+	background-color: #121921;
+	padding: 15px 0;
+}
+.sub-header h1 {
+	color: #fff;
+	margin: 0;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.main-menu_container {
+	padding: 60px 0 30px 0;
+}
+
+.main-menu__content {
+	position: relative;
+	overflow: visible;
+	box-sizing: border-box;
+	min-height: 1px;
+}
+
+.main-menu__order-summary {
+	position: sticky;
+	top: 100px;
+	padding: 0 15px;
+}
+
+.content_filter {
+	padding-bottom: 20px;
+}
